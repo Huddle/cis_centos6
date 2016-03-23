@@ -9,4 +9,4 @@ version          '0.5.0'
 source_url       'https://github.com/Huddle/cis_centos6'
 issues_url       'https://github.com/Huddle/cis_centos6/issues'
 
-supports         'centos', '= 6'
+supports         'centos', '~> 6.7'
