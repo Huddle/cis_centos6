@@ -34,6 +34,10 @@ It has been tested with Chef 12.7.2 but may work with earlier releases. It shoul
 
 There is not currently any unit testing, integration testing or style linting.
 
+## Authors
+
+Developed at [Huddle](https://www.huddle.com/) by [Richard Owen](https://github.com/richardowen) and [Eddie Li](https://github.com/xdl).
+
 ## License
 
 The cookbook is licensed under the MIT license:
