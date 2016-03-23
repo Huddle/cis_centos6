@@ -1,0 +1,17 @@
+# Chef
+
+/.vagrant
+/Berksfile.lock
+/.kitchen/
+/.kitchen.local.yml
+
+# Vim
+
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+.kitchen/
+.kitchen.local.yml
