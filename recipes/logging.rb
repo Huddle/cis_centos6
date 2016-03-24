@@ -55,8 +55,8 @@ template '/etc/audit/auditd.conf' do
 	group 'root'
 	mode 0640
 	variables({
-		:max_log_size => node[:cis_centos6][:logging][:auditd][:max_log_size],
-		:disable_system_on_audit_log_full => node[:cis_centos6][:logging][:auditd][:disable_system_on_audit_log_full]
+		:max_log_size => node['cis_centos6']['logging']['auditd']['max_log_size'],
+		:disable_system_on_audit_log_full => node['cis_centos6']['logging']['auditd']['disable_system_on_audit_log_full']
 	})
 	notifies :reload, 'service[auditd]', :immediately
 end

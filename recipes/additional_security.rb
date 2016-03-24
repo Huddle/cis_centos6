@@ -5,7 +5,7 @@ template '/etc/yum.conf' do
 	group 'root'
 	mode 0644
 	variables({
-		:exclude => node[:cis_centos6][:additional_security][:yum][:exclude]
+		:exclude => node['cis_centos6']['additional_security']['yum']['exclude']
 	})
 end
 
@@ -38,7 +38,7 @@ template '/etc/selinux/config' do
 	group 'root'
 	mode 0644
 	variables({
-		:state => (node[:cis_centos6][:additional_security][:selinux][:enabled] ? 'enforcing' : 'disabled')
+		:state => (node['cis_centos6']['additional_security']['selinux']['enabled'] ? 'enforcing' : 'disabled')
 	})
 end
 

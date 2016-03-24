@@ -24,7 +24,7 @@ template '/etc/pam.d/su' do
 	group 'root'
 	mode 0644
 	variables({
-		:enable_pam_limits => node.cis_centos6[:pam][:enable_pam_limits]
+		:enable_pam_limits => node.cis_centos6['pam']['enable_pam_limits']
 	})
 end
 

@@ -7,9 +7,9 @@ template '/etc/login.defs' do
 	owner 'root'
 	group 'root'
 	variables({
-		:pass_max_days => node[:cis_centos6][:environment][:login][:pass_max_days],
-		:pass_min_days => node[:cis_centos6][:environment][:login][:pass_min_days],
-		:pass_warn_age => node[:cis_centos6][:environment][:login][:pass_warn_age]
+		:pass_max_days => node['cis_centos6']['environment']['login']['pass_max_days'],
+		:pass_min_days => node['cis_centos6']['environment']['login']['pass_min_days'],
+		:pass_warn_age => node['cis_centos6']['environment']['login']['pass_warn_age']
 	})
 end
 
@@ -21,14 +21,14 @@ script 'disable system accounts' do
 			if [ $user != "root" ]
 			then
 				/usr/sbin/usermod -L $user
-				if [ $user != "sync" ] && [ $user != "shutdown" ] && [ $user != "halt" ]#{node[:cis_centos6][:environment][:system_accounts_requiring_shell].map { |acc| ' && [ $user != "' + acc + '" ]' }.join}
+				if [ $user != "sync" ] && [ $user != "shutdown" ] && [ $user != "halt" ]#{node['cis_centos6']['environment']['system_accounts_requiring_shell'].map { |acc| ' && [ $user != "' + acc + '" ]' }.join}
 				then
 					/usr/sbin/usermod -s /sbin/nologin $user
 				fi
 			fi
 		done
 		EOH
-	only_if "[[ $(egrep -v \"^\\+\" /etc/passwd | awk -F: '($1!=\"root\" && $1!=\"sync\" && $1!=\"shutdown\" && $1!=\"halt\"#{node[:cis_centos6][:environment][:system_accounts_requiring_shell].map { |acc| ' && $1!= "' + acc + '"' }.join} && $3<500 && $7!=\"/sbin/nologin\") {print}') ]]"
+	only_if "[[ $(egrep -v \"^\\+\" /etc/passwd | awk -F: '($1!=\"root\" && $1!=\"sync\" && $1!=\"shutdown\" && $1!=\"halt\"#{node['cis_centos6']['environment']['system_accounts_requiring_shell'].map { |acc| ' && $1!= "' + acc + '"' }.join} && $3<500 && $7!=\"/sbin/nologin\") {print}') ]]"
 end
 
 # 7.3 Set Default Group for root Account

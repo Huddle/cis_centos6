@@ -48,7 +48,7 @@ end
 	end
 end
 
-if node[:cis_centos6][:special_purpose_services][:disable_nfs_and_rpc]
+if node['cis_centos6']['special_purpose_services']['disable_nfs_and_rpc']
 	# 3.8 Disable NFS and RPC
 	[
 		'nfslock',
@@ -75,7 +75,7 @@ template '/etc/ntp.conf' do
 	owner 'root'
 	group 'root'
 	mode 0644
-	variables :servers => node[:cis_centos6][:special_purpose_services][:ntp][:servers]
+	variables :servers => node['cis_centos6']['special_purpose_services']['ntp']['servers']
 	notifies :restart, 'service[ntpd]', :immediately
 end
 
