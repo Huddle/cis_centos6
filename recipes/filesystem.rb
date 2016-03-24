@@ -7,7 +7,7 @@ mount '/tmp' do
 	device tmp_device[:device]
 	device_type tmp_device[:device_type]
 	dump 1
-	options node.cis_centos6['filesystem']['tmp']['options']
+	options node['cis_centos6']['filesystem']['tmp']['options']
 	action [:enable, :mount]
 end
 

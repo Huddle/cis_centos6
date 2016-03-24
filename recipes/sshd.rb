@@ -6,12 +6,12 @@ template '/etc/ssh/sshd_config' do
 	mode 0600
 	notifies :reload, 'service[sshd]'
     variables({
-        :allow_users => node.cis_centos6['sshd_config']['allow_users'],
-        :allow_groups => node.cis_centos6['sshd_config']['allow_groups'],
-        :deny_users => node.cis_centos6['sshd_config']['deny_users'],
-        :deny_groups => node.cis_centos6['sshd_config']['deny_groups'],
-        :ciphers => node.cis_centos6['sshd_config']['ciphers'],
-        :macs => node.cis_centos6['sshd_config']['macs']
+        :allow_users => node['cis_centos6']['sshd_config']['allow_users'],
+        :allow_groups => node['cis_centos6']['sshd_config']['allow_groups'],
+        :deny_users => node['cis_centos6']['sshd_config']['deny_users'],
+        :deny_groups => node['cis_centos6']['sshd_config']['deny_groups'],
+        :ciphers => node['cis_centos6']['sshd_config']['ciphers'],
+        :macs => node['cis_centos6']['sshd_config']['macs']
     })
 
 end
