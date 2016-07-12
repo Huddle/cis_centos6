@@ -1,6 +1,6 @@
 module MountedDeviceFinder
 	def self.find_device(mount_point)
-		command = Mixlib::ShellOut.new('cat /etc/fstab | grep -E \'^\\S+\\s+' + mount_point + '\s\' | cut -d \' \' -f1')
+		command = Mixlib::ShellOut.new('cat /etc/fstab | grep -E \'^\\S+\\s+' + mount_point + '\s\' | awk \'{print $1}\'')
 		command.run_command
 		output = command.stdout.strip
 
