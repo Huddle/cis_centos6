@@ -13,7 +13,8 @@ end
 
 # 1.1.6 Bind Mount the /var/tmp directory to /tmp
 mount '/var/tmp' do
-	device '/tmp'
+	device tmp_device[:device]
+	device_type tmp_device[:device_type]
 	fstype 'none'
 	options 'bind'
 	pass 0
