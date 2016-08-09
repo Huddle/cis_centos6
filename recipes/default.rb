@@ -1,3 +1,5 @@
+# Wrapper recipe to include all in directory
+
 include_recipe 'cis_centos6::additional_security'
 include_recipe 'cis_centos6::banners'
 include_recipe 'cis_centos6::cron'
